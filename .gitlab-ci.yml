@@ -1,0 +1,36 @@
+stages:
+  - test
+  - build
+  - run
+
+variables:
+  PROJECT_DIR: "./psta-src"
+  JAR_NAME: "psta-src-1.0"
+
+
+test:
+  image: gradle:8.7.0-jdk21
+  stage: test
+  script:
+    - cd $PROJECT_DIR
+    - gradle test
+
+build:
+  image: gradle:8.7.0-jdk21
+  stage: build
+  script:
+    - cd $PROJECT_DIR
+    - gradle assemble
+  artifacts:
+    paths:
+      - ./$PROJECT_DIR/build/libs/$JAR_NAME.jar
+  rules:
+    - if: $CI_COMMIT_BRANCH
+      when: always
+
+run:
+  image: gradle:8.7.0-jdk21
+  stage: run
+  script:
+    - cd $PROJECT_DIR
+    - gradle run
