@@ -12,7 +12,4 @@ public enum TrainingGoal {
 
     /** Fettabbau */
     FAT_LOSS,
-
-    /** Verbesserung der Ausdauer */
-    ENDURANCE
 }

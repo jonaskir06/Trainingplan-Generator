@@ -1,34 +1,37 @@
 package th.rosenheim.oop.model;
 
 import th.rosenheim.oop.enums.ExperienceLevel;
-import th.rosenheim.oop.enums.MuscleGroup;
+import th.rosenheim.oop.enums.TrainingGoal;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Die Klasse TrainingPlan repräsentiert einen vollständigen
  * Trainingsplan für ein bestimmtes Erfahrungslevel.
- * Pro Muskelgruppe können mehrere Übungen enthalten sein.
+ * Ein Trainingsplan besteht aus mehreren Trainingstagen
  */
 public class TrainingPlan {
 
     private ExperienceLevel level;
-    private Map<MuscleGroup, List<Exercise>> exercises;
+    private TrainingGoal trainingGoal;
+    private List<TrainingDay> trainingDays;
 
     /**
      * Erstellt einen neuen Trainingsplan.
-     * @param level Erfahrungslevel für den Trainingsplan
-     * @param exercises Zuordnung von Muskelgruppen zu ihren Übungen
+     *
+     * @param level        Erfahrungslevel für den Trainingsplan
+     * @param trainingGoal Trainingszeil des Users
+     * @param trainingDays Liste der Trainingstage
      */
     public TrainingPlan(ExperienceLevel level,
-                        Map<MuscleGroup, List<Exercise>> exercises) {
+                        TrainingGoal trainingGoal, List<TrainingDay> trainingDays) {
         this.level = level;
-        this.exercises = exercises;
+        this.trainingGoal = trainingGoal;
+        this.trainingDays = trainingDays;
     }
 
     /**
-     * Gibt das Erfahrungslevel des Trainingsplans zurück.
+     * Gibt das Erfahrungslevel des Users zurück.
      * @return Erfahrungslevel
      */
     public ExperienceLevel getLevel() {
@@ -36,20 +39,28 @@ public class TrainingPlan {
     }
 
     /**
-     * Gibt alle Übungen des Trainingsplans zurück.
-     * Jede Muskelgruppe ist dabe ieiner Liste von Übungen zugeordnet
-     * @return Map aus Muskelgruppe und Liste der Übungen
+     * Gibt das Trainingsziel des Users zurück.
+     * @return Trainingsziel
      */
-    public Map<MuscleGroup, List<Exercise>> getExercises() {
-        return exercises;
+    public TrainingGoal getTrainingGoal() {
+        return trainingGoal;
+    }
+
+
+    /**
+     * Gibt alle Trainingstage des Trainingsplans zurück.
+     * @return Liste der Trainingstage
+     */
+    public List<TrainingDay> getTrainingDays() {
+        return trainingDays;
     }
 
     /**
-     * Textuelle Darstellung des Trainingsplans.
+     * Darstellung des Trainingsplans.
      * @return Trainingsplan als String
      */
     @Override
     public String toString() {
-        return "TrainingsPlan (" + level + "): " + exercises;
+        return "TrainingPlan (" + level + ", Tage: " + trainingDays.size() + ")";
     }
 }
