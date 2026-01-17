@@ -30,11 +30,11 @@ public class App {
      */
     public static void init() {
 
-        //Benutzer erstellen
+        //Benutzer erstellen (
         User user = new User(
                 "Hannes Hantelheber",
-                ExperienceLevel.ADVANCED,
-                TrainingGoal.FAT_LOSS
+                ExperienceLevel.INTERMEDIATE,
+                TrainingGoal.MUSCLE_GAIN
         );
 
         //Alle verfügbaren Übungen aus dem Katalog laden
@@ -58,6 +58,8 @@ public class App {
 
     /**
      * Wandelt das Erfahrungslevel in eine deutsche Bezeichnung um.
+     *  @param level Erfahrungslevel
+     *  @return deutsche Bezeichnung des Erfahrungslevels
      */
     private static String formatExperienceLevel(ExperienceLevel level) {
         switch (level) {
@@ -76,6 +78,8 @@ public class App {
 
     /**
      * Wandelt das Trainingsziel in eine lesbare deutsche Bezeichnung um.
+     * @param goal Trainingsziel
+     * @return deutsche Bezeichnung des Trainingsziels
      */
     private static String formatTrainingGoal(TrainingGoal goal) {
         switch (goal) {
@@ -90,6 +94,9 @@ public class App {
 
     /**
      * Gibt einen übersichtlichen Trainingsplan aus.
+     * @param user Benutzer, für den der Trainingsplan erstellt wurde
+     * @param plan generierter Trainingsplan
+     * @param sortedDays Trainingstage sortiert nach Gesamtdauer
      */
     private static void printTrainingPlan(User user, TrainingPlan plan, List<TrainingDay> sortedDays) {
 
@@ -99,6 +106,9 @@ public class App {
         System.out.println("Nutzer          : " + user.getName());
         System.out.println("Erfahrungslevel : " + formatExperienceLevel(plan.getLevel()));
         System.out.println("Trainingsziel   : " + formatTrainingGoal(plan.getTrainingGoal()));
+        System.out.println();
+        System.out.println("[ⓘ Nutzer-Hinweis: Nach jedem Satz im Kraft-\n" +
+                "training sind 2 Minuten Pause eingeplant]");
         System.out.println();
 
         for (TrainingDay day : plan.getTrainingDays()) {
@@ -135,7 +145,7 @@ public class App {
                     System.out.println();
                 }
 
-                //Kardio
+                //Kardiotraining
                 else if (workout instanceof CardioWorkout) {
 
                     System.out.printf(
@@ -160,7 +170,7 @@ public class App {
         }
 
         //Um die Comparable Funktion darzustellen
-        System.out.println("===== TRAININGSTAGE NACH BELASTUNG =====");
+        System.out.println("TRAININGSTAGE SORTIERT NACH BELASTUNG (in min)");
 
         for (TrainingDay day : sortedDays) {
             System.out.println(

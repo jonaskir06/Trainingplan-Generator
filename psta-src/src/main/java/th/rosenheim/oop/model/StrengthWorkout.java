@@ -10,10 +10,13 @@ import java.util.List;
 public class StrengthWorkout extends Workout {
 
     /** Dauer eines Satzes in Minuten */
-    private static final int MINUTES_PER_SET = 1;
+    private static final int MINUTES_PER_SET = 2;
 
     /** Pause zwischen zwei Sätzen in Minuten */
     private static final int BREAK_BETWEEN_SETS = 2;
+
+    /** Pause zwischen zwei Übungen in Minuten */
+    private static final int BREAK_BETWEEN_EXERCISES = 2;
 
     /**
      * Erstellt ein Krafttraining mit den angegebenen Kraftübungen.
@@ -37,7 +40,8 @@ public class StrengthWorkout extends Workout {
         int totalDuration = 0;
 
         //Berechnung der Dauer für jede Übung im Workout
-        for (Exercise exercise : exercises) {
+        for (int i = 0; i < exercises.size(); i++) {
+            Exercise exercise = exercises.get(i);
 
             //Ruft Anzahl der Sätze der jeweiligen Übung ab
             int sets = exercise.getSets();
@@ -46,7 +50,14 @@ public class StrengthWorkout extends Workout {
             totalDuration += sets * MINUTES_PER_SET;
 
             // Pausen zwischen den Sätzen (keine Pause nach letztem Satz)
-            totalDuration += (sets - 1) * BREAK_BETWEEN_SETS;
+            if (sets > 1) {
+                totalDuration += (sets - 1) * BREAK_BETWEEN_SETS;
+            }
+
+            // Pause zwischen Übungen (aber NICHT nach der letzten Übung)
+            if (i < exercises.size() - 1) {
+                totalDuration += BREAK_BETWEEN_EXERCISES;
+            }
         }
 
         return totalDuration;

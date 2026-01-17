@@ -5,7 +5,7 @@ import th.rosenheim.oop.model.Workout;
 import java.util.List;
 
 /**
- * Hilfsklasse zur Berechnung der Trainingswerte
+ * Hilfsklasse zur Berechnung der Gesamtdauer mehrerer Workouts.
  */
 public class WorkoutCalculator {
 

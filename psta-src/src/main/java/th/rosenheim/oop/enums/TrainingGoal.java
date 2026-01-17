@@ -7,9 +7,9 @@ package th.rosenheim.oop.enums;
  */
 public enum TrainingGoal {
 
-    /** Muskelaufbau */
+    /** Trainingsziel: Muskelaufbau */
     MUSCLE_GAIN,
 
-    /** Fettabbau */
+    /** Trainingsziel: Fettabbau */
     FAT_LOSS,
 }

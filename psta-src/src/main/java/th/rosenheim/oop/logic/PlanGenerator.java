@@ -92,11 +92,8 @@ public class PlanGenerator {
         for (int i = 0; i < cardioDays; i++) {
 
             List<CardioExercise> cardioExercises = CardioCatalog.getAllCardioExercises();
-            //Trainingstage mischen (Kraft und Cardio)
+            //Trainingstage vermischen (Kraft und Cardio), um bspw. nicht 3 Tage hintereinander Kraft zu trainieren
             Collections.shuffle(generatedTrainingDays);
-
-            //Woche mit Rest Days erzeugen
-            List<TrainingDay> week = new ArrayList<>();
 
             CardioExercise cardioExercise = cardioExercises.get(0);
 
@@ -201,10 +198,10 @@ public class PlanGenerator {
     }
 
     /**
-     * Erstellt ein Cardio-Workout mit genau einer Übung.
-     * @param cardioExercise Cardio-Übung (z. B. Joggen)
+     * Erstellt ein Kardio-Workout mit genau einer Übung.
+     * @param cardioExercise Kardio-Übung (z. B. Joggen)
      * @param level Erfahrungslevel des Benutzers
-     * @return CardioWorkout
+     * @return erzeugtes CardioWorkout
      */
     public CardioWorkout createCardioWorkout(Exercise cardioExercise,
                                              ExperienceLevel level) {

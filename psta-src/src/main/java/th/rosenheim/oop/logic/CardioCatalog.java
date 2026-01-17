@@ -12,6 +12,10 @@ import java.util.List;
  */
 public class CardioCatalog {
 
+    /**
+     * Alle verfügbaren Cardio-Übungen.
+     * @return Liste aller Cardio-Übungen
+     */
     public static List<CardioExercise> getAllCardioExercises() {
 
         List<CardioExercise> exercises = new ArrayList<>();

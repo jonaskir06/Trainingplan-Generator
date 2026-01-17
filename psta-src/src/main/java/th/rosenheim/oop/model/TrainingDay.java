@@ -42,8 +42,7 @@ public class TrainingDay implements Schedulable, Comparable<TrainingDay> {
      * Kardio oder ausschließlich Krafttraining enthält.
      *
      * @param workout Das hinzuzufügende Workout
-     * @throws IllegalStateException wenn versucht wird,
-     *         Cardio- und Krafttraining an einem Tag zu mischen
+     * @throws IllegalStateException wenn versucht wird, Kardio- und Krafttraining an einem Tag zu mischen
      */
     public void addWorkout(Workout workout) {
 
