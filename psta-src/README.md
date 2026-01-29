@@ -1,7 +1,6 @@
 # Trainingsplan-Generator (PStA OOP)
 
 - **Name:** Jonas Max, Kirchenbaur
-- **Matrikelnummer:** 1082584
 - **Projekttitel:** Trainingsplan-Generator
 
 ---
